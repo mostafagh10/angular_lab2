@@ -1,0 +1,6 @@
+<div class="container text-center mt-5">
+<app-firstchild (sendToParent2)="addfun($event)"></app-firstchild>
+@for(work of works;track work.id){
+<app-secondchild [workItem]="work" (sendToSecondChild)="deletefun($event)"></app-secondchild>
+}
+</div>

@@ -1,0 +1,26 @@
+<div class="container">
+  <input class="form-control mt-3" #searchuser placeholder="search by email" />
+  <button class="btn btn-primary mt-2" (click)="search(searchuser.value)">search</button>
+    <div class="row">
+      @if(users.length > 0){
+        @for (user of users; track user.id) {
+        <div class="col-md-4 col-sm-12 mt-4">
+            <div class="card text-center">
+                <img [src]="user.image" class="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title">Name: {{user.username}} <i [ngClass]="user.is_verified ? 'starone' : 'startwo'" class="fa fa-star" aria-hidden="true"></i></h5>
+                  <h5 class="card-text">{{user.email}}</h5>
+                  <h5>{{user.phone}}</h5>
+                </div>
+              </div>
+        </div>
+        }
+      }@else {
+        <div class="text-center">
+        <h2>there is no user with this email</h2>
+        <button class="btn btn-primary" (click)="viewallusers()">view all users</button>
+      </div>
+      }
+    </div>
+    <hr />
+</div>
